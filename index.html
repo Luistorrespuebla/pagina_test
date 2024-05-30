@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Películas</title>
+    <title>Examen</title>
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="d-flex justify-content-between align-items-center">
+        <div>
+            <img src="img/pato.jpeg" class="mb-5 w-50" id="segob">
+        </div>
+        <nav>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-success" type="submit" style="background-color: white;"><ion-icon name="search-outline"></ion-icon></button>
+            </form>
+        </nav>
+    </header>
     <div class="container">
-        <h1 class="text-center mt-5">Catálogo de Películas</h1>
-        <div id="catalog" class="row row-cols-3"></div>
-
-        <h2>Agregar/Editar Película</h2>
-        <form id="movieForm" class="row">
-            <div class="col-md-6">
-                <input type="hidden" id="movieId">
-                <label for="title">Título:</label>
-                <input type="text" id="title" class="form-control" required>
-            </div>
-            <div class="col-md-6">
-                <label for="year">Año:</label>
-                <input type="number" id="year" class="form-control" required>
-            </div>
-            <div class="col-12 mt-3">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
+        <br><br><br>
+        <h1 class="text-center" style="font-family: 'Times New Roman', Times,;">Cinepatito.com</h1>
+        <br><br>
+        <form id="movieForm" class="text-center">
+            <input type="hidden" id="movieId">
+            <input type="text" class="form-control me-5" id="title" placeholder="Título" required>
+            <input type="number" class="form-control me-2" type="search" id="year" placeholder="Año" required>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
+        <br>
+        <div id="catalog"></div>
+        <script src="main.js"></script>
     </div>
-    <script src="main.js"></script>
+    <footer>
+        <p>&copy; El consumo de azúcar puede ser nocivo para la salud</p>
+    </footer>
 </body>
 </html>

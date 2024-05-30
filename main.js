@@ -5,11 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleInput = document.getElementById('title');
     const yearInput = document.getElementById('year');
 
+    const images = ['img/a.jpeg', 'img/b.jpeg', 'img/c.jpeg','img/d.jpeg', 'img/e.jpeg', 'img/f.jpeg', 'img/g.jpeg', 
+    'img/h.jpeg', 'img/i.jpeg', 'img/j.jpeg', 'img/k.jpeg', 'img/l.jpeg', 'img/m.jpeg'];
+
     class catalogoPeliculas {
         #movies = [];
 
         addMovie(title, year) {
-            const movie = { id: Date.now().toString(), title, year };
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            const movie = { id: Date.now().toString(), title, year, image: randomImage };
             this.#movies.push(movie);
             this.displayMovies();
         }
@@ -36,12 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
             catalogElement.innerHTML = '';
             this.#movies.forEach(movie => {
                 const movieElement = document.createElement('div');
-                movieElement.classList.add('movie');
+                movieElement.classList.add('card');
                 movieElement.innerHTML = `
-                    <strong>${movie.title}</strong> (${movie.year})
+                    <strong>${movie.title}</strong>
+                    <p>${movie.year}</p>
+                    <img src="${movie.image}" alt="${movie.title}">
                     <div class="actions">
-                        <button type="submit" class="btn btn-primary" onclick="editMovie('${movie.id}')">Editar</button>
-                        <button type="submit" class="btn btn-primary" onclick="deleteMovie('${movie.id}')">Eliminar</button>
+                        <button type="button" class="btn btn-primary" onclick="editMovie('${movie.id}')">Editar</button>
+                        <button type="button" class="btn btn-primary" onclick="deleteMovie('${movie.id}')">Eliminar</button>
                     </div>
                 `;
                 catalogElement.appendChild(movieElement);
